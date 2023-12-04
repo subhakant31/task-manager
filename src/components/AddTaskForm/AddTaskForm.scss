@@ -1,0 +1,12 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/variables";
+
+.add-task-form-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  margin: auto;
+  width: 90%;
+  background-color: $color-yellow;
+}
