@@ -1,3 +1,11 @@
-@import '../../../styles/partials/fonts';
-@import '../../../styles/partials/variables';
+@import "../../../styles/partials/fonts";
+@import "../../../styles/partials/variables";
 
+.task {
+  .past-due-date {
+    color: $color-red;
+  }
+  .in-due-date {
+    color: $color-green;
+  }
+}
