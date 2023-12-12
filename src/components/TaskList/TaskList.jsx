@@ -7,8 +7,6 @@ function TaskList(props) {
   const taskData = props.taskData; //task data from parent component
   const setTaskData = props.setTaskData; //function to change task data
   const setTaskFormVisible = props.setTaskFormVisible; //function to enable/disable form modal
-  const deletePromptVisible = props.deletePrompt;
-  const setDeletePromptVisible = props.setDeletePromptVisible;
 
   const itemIdToManipulate = props.itemIdToManipulate;
   const setItemIdToManipulate = props.setItemIdToManipulate;
@@ -30,8 +28,6 @@ function TaskList(props) {
             <Task
               itemIdToManipulate={itemIdToManipulate}
               setItemIdToManipulate={setItemIdToManipulate}
-              deletePromptVisible={deletePromptVisible}
-              setDeletePromptVisible={setDeletePromptVisible}
               taskData={taskData}
               setTaskData={setTaskData}
               setTaskFormVisible={setTaskFormVisible}

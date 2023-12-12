@@ -5,12 +5,10 @@ import TaskList from "./components/TaskList/TaskList";
 import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
 import SortByBtn from "./components/SortByBtn/SortByBtn";
 import SubHeader from "./SubHeader/SubHeader";
-import DeletePrompt from "./components/DeletePrompt/DeletePrompt";
 function App() {
   const [taskData, setTaskData] = useState([]);
   const [taskFormVisible, setTaskFormVisible] = useState(false);
   const [headerDate, setHeaderDate] = useState(new Date());
-  const [deletePromptVisible, setDeletePromptVisible] = useState(false);
   const [itemIdToManipulate, setItemIdToManipulate] = useState();
 
   return (
@@ -22,17 +20,10 @@ function App() {
         taskFormVisible={taskFormVisible}
         setTaskFormVisible={setTaskFormVisible}
       ></SubHeader>
-      {deletePromptVisible && (
-        <DeletePrompt
-          deletePromptVisible={deletePromptVisible}
-          setDeletePromptVisible={setDeletePromptVisible}
-        ></DeletePrompt>
-      )}
+
       <TaskList
         itemIdToManipulate={itemIdToManipulate}
         setItemIdToManipulate={setItemIdToManipulate}
-        deletePromptVisible={deletePromptVisible}
-        setDeletePromptVisible={setDeletePromptVisible}
         setTaskFormVisible={setTaskFormVisible}
         taskData={taskData}
         setTaskData={setTaskData}

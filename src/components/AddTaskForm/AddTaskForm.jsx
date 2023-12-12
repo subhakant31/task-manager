@@ -118,69 +118,58 @@ function AddTaskForm(props) {
   }
 
   useEffect(() => {
-    const taskTitleInput = document.querySelector(
-      ".add-task-form-container__form__title"
-    );
-    const taskDescriptionInput = document.querySelector(
-      ".add-task-form-container__form__description"
-    );
-    const taskDueDateInput = document.querySelector(
-      ".add-task-form-container__form__due-date"
-    );
-
+    //logic to set the values to the respective form input fields
     if (itemIdToManipulate !== undefined) {
       const taskToUpdate = taskData.find(
         (task) => task.id === itemIdToManipulate
       );
       if (taskToUpdate) {
-        taskTitleInput.value = taskToUpdate.title;
         setTaskTitle(taskToUpdate.title);
         setTaskDescription(taskToUpdate.description);
         setTaskDueDate(taskToUpdate.dueDate);
-        setIsInDueDate(taskToUpdate.isInDueDate);
       }
     }
   }, [itemIdToManipulate, taskData]);
 
   return (
-    <div className='task-add-form-modal'>
-      <div className='add-task-form-container'>
+    <div className="task-add-form-modal">
+      <div className="add-task-form-container">
         <button
-          className='add-task-form-container__close-form-btn'
+          className="add-task-form-container__close-form-btn"
           onClick={closeForm}
         >
           <FontAwesomeIcon icon={faClose} />
         </button>
         <form
-          action=''
-          className='add-task-form-container__form'
+          action=""
+          className="add-task-form-container__form"
           data-id={itemIdToManipulate}
         >
-          <label htmlFor='task-title'>Task Title:</label>
+          <label htmlFor="task-title">Task Title:</label>
           <input
-            type='text'
-            id='task-title'
-            placeholder='Enter Title'
-            className='add-task-form-container__form__title'
+            type="text"
+            id="task-title"
+            placeholder="Enter Title"
+            className="add-task-form-container__form__title"
             onChange={handleChange}
             required={true}
             value={taskTitle}
           />
 
-          <label htmlFor='task-description'>Task Description:</label>
+          <label htmlFor="task-description">Task Description:</label>
           <textarea
-            id='task-description'
-            placeholder='Enter Description'
-            className='add-task-form-container__form__description'
+            id="task-description"
+            placeholder="Enter Description"
+            className="add-task-form-container__form__description"
             onChange={handleChange}
             value={taskDescription}
           />
 
-          <label htmlFor='due-date'>Due Date:</label>
+          <label htmlFor="due-date">Due Date:</label>
           <input
-            type='date'
-            id='due-date'
-            className='add-task-form-container__form__due-date'
+            type="date"
+            id="due-date"
+            className="add-task-form-container__form__due-date"
             onChange={handleChange}
             required={true}
             value={taskDueDate}
@@ -189,14 +178,14 @@ function AddTaskForm(props) {
           {itemIdToManipulate !== undefined ? (
             <button
               data-id={itemIdToManipulate}
-              className='add-task-btn add-task-form-container__form__save-task'
+              className="add-task-btn add-task-form-container__form__save-task"
               onClick={handleSubmit}
             >
               Save Task
             </button>
           ) : (
             <button
-              className='add-task-btn add-task-form-container__form__add-task'
+              className="add-task-btn add-task-form-container__form__add-task"
               onClick={handleSubmit}
             >
               Add Task

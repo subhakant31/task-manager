@@ -1,0 +1,25 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/variables";
+
+.status-pill {
+  border-radius: 20px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    font-size: $x-small;
+    padding: 5px 3px;
+    text-transform: capitalize;
+    font-weight: $bold;
+  }
+}
+
+.completed {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: $color-green;
+}
+.incomplete {
+  background-color: rgb(255, 0, 0, 0.2);
+  color: $color-red;
+}
