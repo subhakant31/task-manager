@@ -1,6 +1,6 @@
 import "./AddTaskBtn.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlus } from "@fortawesome/free-solid-svg-icons";
 function AddTaskBtn(props) {
   const setTaskFormVisible = props.setTaskFormVisible;
   const taskFormVisible = props.taskFormVisible;
@@ -8,8 +8,8 @@ function AddTaskBtn(props) {
     setTaskFormVisible(!taskFormVisible);
   }
   return (
-    <button className="add-task-btn" onClick={handleClick}>
-      <FontAwesomeIcon icon={faPlus} />
+    <button className='add-task-btn' onClick={handleClick}>
+      Add New
     </button>
   );
 }

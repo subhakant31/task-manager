@@ -1,0 +1,17 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/variables";
+
+.delete-prompt {
+  &__title {
+    font-size: $xx-large;
+  }
+  &__btn-wrapper {
+    display: flex;
+    &__yes {
+      padding: 5px 10px;
+    }
+    &__no {
+      padding: 5px 10px;
+    }
+  }
+}

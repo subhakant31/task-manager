@@ -49,3 +49,18 @@ export function completeTask(taskId, taskData) {
 
   return taskData;
 }
+
+/* @function : findIncompleteTaskLength
+    @description : finds all the task counts which are incomplete
+    @params :  taskData as Array
+    @returns : count as number
+*/
+export function findIncompleteTaskLength(taskData) {
+  var count = 0;
+  for (var i = 0; i < taskData.length; i++) {
+    if (taskData[i].isCompleted === false) {
+      count++;
+    }
+  }
+  return count;
+}

@@ -1,0 +1,14 @@
+@import "../../styles/partials/variables";
+@import "../../styles/partials/fonts";
+
+select {
+  height: fit-content;
+  background-color: transparent;
+  font-size: 20px;
+  width: 100px;
+  border: none;
+  font-family: Poppins;
+  option {
+    font-family: Poppins;
+  }
+}

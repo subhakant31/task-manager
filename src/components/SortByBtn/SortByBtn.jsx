@@ -22,10 +22,10 @@ function SortByBtn(props) {
   }
 
   return (
-    <select name='' id='' onClick={handleClick}>
-      <option>sort by</option>
-      <option value='due-date-descending'>due date (high-low)</option>
-      <option value='due-date-ascending'>due date (low-high)</option>
+    <select name='' id='' onChange={handleClick}>
+      <option>Sort By</option>
+      <option value='due-date-descending'>due date (descending)</option>
+      <option value='due-date-ascending'>due date (ascending)</option>
       <option value='status-completed'>status (completed)</option>
 
       <option value='status'>status</option>

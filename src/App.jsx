@@ -1,42 +1,53 @@
-import "./App.css";
+import "./App.scss";
 import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import TaskList from "./components/TaskList/TaskList";
 import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
-import AddTaskBtn from "./components/AddTaskBtn/AddTaskBtn";
-import ErrorText from "./components/ErrorText/ErrorText";
 import SortByBtn from "./components/SortByBtn/SortByBtn";
+import SubHeader from "./SubHeader/SubHeader";
+import DeletePrompt from "./components/DeletePrompt/DeletePrompt";
 function App() {
   const [taskData, setTaskData] = useState([]);
   const [taskFormVisible, setTaskFormVisible] = useState(false);
+  const [headerDate, setHeaderDate] = useState(new Date());
+  const [deletePromptVisible, setDeletePromptVisible] = useState(false);
+  const [itemIdToManipulate, setItemIdToManipulate] = useState();
 
   return (
     <React.Fragment>
-      <Header></Header>
       {console.log(taskData)}
-      {taskData.length !== 0 && (
-        <SortByBtn taskData={taskData} setTaskData={setTaskData}></SortByBtn>
+      <Header headerDate={headerDate} setHeaderDate={setHeaderDate}></Header>
+      <SubHeader
+        taskData={taskData}
+        taskFormVisible={taskFormVisible}
+        setTaskFormVisible={setTaskFormVisible}
+      ></SubHeader>
+      {deletePromptVisible && (
+        <DeletePrompt
+          deletePromptVisible={deletePromptVisible}
+          setDeletePromptVisible={setDeletePromptVisible}
+        ></DeletePrompt>
       )}
-
       <TaskList
+        itemIdToManipulate={itemIdToManipulate}
+        setItemIdToManipulate={setItemIdToManipulate}
+        deletePromptVisible={deletePromptVisible}
+        setDeletePromptVisible={setDeletePromptVisible}
         setTaskFormVisible={setTaskFormVisible}
         taskData={taskData}
         setTaskData={setTaskData}
       ></TaskList>
-      {taskData.length === 0 && (
-        <ErrorText errorMessage='No task has been added'></ErrorText>
-      )}
+
       {taskFormVisible && (
         <AddTaskForm
+          itemIdToManipulate={itemIdToManipulate}
+          setItemIdToManipulate={setItemIdToManipulate}
           taskData={taskData}
           setTaskData={setTaskData}
+          taskFormVisible={taskFormVisible}
           setTaskFormVisible={setTaskFormVisible}
         ></AddTaskForm>
       )}
-      <AddTaskBtn
-        taskFormVisible={taskFormVisible}
-        setTaskFormVisible={setTaskFormVisible}
-      ></AddTaskBtn>
     </React.Fragment>
   );
 }

@@ -15,16 +15,61 @@
     border-radius: 10px;
     left: 0;
     right: 0;
-    height: 50vh;
+    height: fit-content;
     width: 90%;
-    background-color: $color-yellow;
+    background-color: $color-white;
     &__form {
+      width: 90%;
+      height: 50vh;
+      margin: auto;
+      margin-top: 10%;
+      label {
+        margin-left: 12px;
+        color: #000;
+        display: block;
+        margin-top: 20px;
+      }
+      input,
+      textarea {
+        display: block;
+        padding: 5px 10px;
+        width: 90%;
+        margin: auto;
+        margin-top: 10px;
+      }
+      textarea {
+        height: 30%;
+      }
       &__add-task {
+        width: fit-content;
+        margin: auto;
         position: absolute;
-        bottom: 0;
+        bottom: -0;
+        background-color: $color-purple;
+        color: $color-white;
+        margin-bottom: 20px;
+      }
+      &__save-task {
+        background-color: $color-purple;
+        color: $color-white;
+        position: absolute;
+        width: fit-content;
+        margin: auto;
       }
     }
     &__close-form-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .fa-xmark {
+        font-size: 30px;
+      }
     }
   }
 }

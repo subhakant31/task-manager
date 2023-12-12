@@ -1,0 +1,33 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/variables";
+
+.task-list-container {
+  background-color: $color-white;
+  color: $color-black;
+  border-top-left-radius: 50px;
+  overflow-y: scroll;
+  height: calc(100vh - 243px);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .heading-sort-wrapper {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+    &__heading {
+      display: block;
+      width: 90%;
+      font-weight: $semi-bold;
+      margin: auto;
+      font-size: $xxx-large;
+    }
+  }
+
+  &__list {
+    min-height: 20rem;
+    padding-left: 0;
+  }
+}

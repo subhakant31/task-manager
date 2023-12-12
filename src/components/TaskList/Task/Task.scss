@@ -2,10 +2,64 @@
 @import "../../../styles/partials/variables";
 
 .task {
-  .past-due-date {
-    color: $color-red;
+  background-color: $color-purple-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  list-style: none;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  &__checkbox-info-wrapper {
+    display: flex;
   }
-  .in-due-date {
-    color: $color-green;
+  &:first-child {
+    margin-top: 30px;
+  }
+  &__contents {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    &__task-info-wrapper {
+      .title-description-wrapper {
+        display: flex;
+        flex-direction: column;
+        &__task-title {
+          font-size: $x-large;
+        }
+        &__task-description {
+          font-size: $regular;
+          margin-top: 10px;
+        }
+      }
+    }
+    &__action-btn-wrapper {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: fit-content;
+      .action-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .delete-task-btn {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  // .past-due-date {
+  //   color: $color-red;
+  // }
+  // .in-due-date {
+  //   color: $color-green;
+  // }
+
+  .edit-task-btn {
+    height: fit-content;
   }
 }

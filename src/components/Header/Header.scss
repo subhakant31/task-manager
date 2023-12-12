@@ -2,17 +2,27 @@
 @import "../../styles/partials/variables";
 
 .header {
-  font-family: "Montserrat";
   padding: 20px 0;
   &__container {
     width: 90%;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
+    .fa-bars {
+      font-size: 30px;
+    }
+    .fa-clock {
+      font-size: 30px;
+    }
     &__logo {
       text-decoration: none;
       font-size: $xxx-large;
 
       color: $color-black;
       font-weight: $bold;
+    }
+    &__date {
+      font-size: $xx-large;
     }
   }
 }

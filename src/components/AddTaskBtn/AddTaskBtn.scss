@@ -2,21 +2,17 @@
 @import "../../styles/partials/variables";
 
 .add-task-btn {
-  //   height: 50px;
-  //   width: 50px;
-  padding: 10px 15px;
+  background-color: $color-white;
+  color: $color-purple;
+  padding: 10px 20px;
+  height: fit-content;
   border-radius: 10px;
   outline: none;
   border: none;
-  background-color: $color-blue;
   font-size: $x-large;
-  color: $color-white;
-
-  position: absolute;
   bottom: 20px;
   left: 0;
   right: 0;
-  margin: auto;
   &:hover {
     cursor: pointer;
   }
