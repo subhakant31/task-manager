@@ -12,6 +12,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__task-count {
+      margin-top: 10px;
+    }
     &__date {
       font-size: $x-large;
     }
@@ -20,6 +23,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__task-count {
+      margin-top: 10px;
+    }
     &__date {
       font-size: $x-large;
     }

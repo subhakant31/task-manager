@@ -2,8 +2,7 @@ import { sortData } from "../../helperFunction";
 import "./SortByBtn.scss";
 
 function SortByBtn(props) {
-  const taskData = props.taskData; //all the task objects in an array
-  const setTaskData = props.setTaskData;
+  const { taskData, setTaskData } = props;
 
   function handleClick(e) {
     const sortBy = e.target.value;
@@ -22,13 +21,11 @@ function SortByBtn(props) {
   }
 
   return (
-    <select name='' id='' onChange={handleClick}>
+    <select name="" id="" onChange={handleClick}>
       <option>Sort By</option>
-      <option value='due-date-descending'>due date (descending)</option>
-      <option value='due-date-ascending'>due date (ascending)</option>
-      <option value='status-completed'>status (completed)</option>
-
-      <option value='status'>status</option>
+      <option value="due-date-descending">due date (descending)</option>
+      <option value="due-date-ascending">due date (ascending)</option>
+      <option value="status-completed">status (completed)</option>
     </select>
   );
 }

@@ -42,9 +42,6 @@ export function completeTask(taskId, taskData) {
   const taskIndex = taskData.findIndex((task) => task.id === taskId);
   if (taskIndex !== -1) {
     taskData[taskIndex].isCompleted = !taskData[taskIndex].isCompleted;
-    console.log(`Task with ID ${taskId} deleted successfully.`);
-  } else {
-    console.log(`Task with ID ${taskId} not found.`);
   }
 
   return taskData;
@@ -61,9 +58,6 @@ export function deleteTask(taskId, taskData) {
   if (taskIndex !== -1) {
     // Use splice to remove the task from the array
     taskData.splice(taskIndex, 1);
-    console.log(`Task with ID ${taskId} deleted successfully.`);
-  } else {
-    console.log(`Task with ID ${taskId} not found.`);
   }
 
   return taskData;

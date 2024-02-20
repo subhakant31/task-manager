@@ -7,12 +7,14 @@ import { v4 as uuidv4 } from "uuid"; // Import the v4 function from uuid
 import { useEffect } from "react";
 
 function AddTaskForm(props) {
-  const setTaskData = props.setTaskData; //function to change the task data
-  const taskData = props.taskData; //data of tasks state
-  const setTaskFormVisible = props.setTaskFormVisible;
-
-  const itemIdToManipulate = props.itemIdToManipulate;
-  const setItemIdToManipulate = props.setItemIdToManipulate;
+  
+  const {
+    setTaskData,
+    taskData,
+    setTaskFormVisible,
+    itemIdToManipulate,
+    setItemIdToManipulate,
+  } = props;
 
   const [taskTitle, setTaskTitle] = useState("");
   const [taskCategory, setTaskCategory] = useState("");
@@ -134,9 +136,13 @@ function AddTaskForm(props) {
   return (
     <div className="task-add-form-modal">
       <div className="add-task-form-container">
+        <h1 className="add-task-form-container__title">
+          {itemIdToManipulate !== undefined ? "Edit task" : "Add a new task"}
+        </h1>
         <button
           className="add-task-form-container__close-form-btn"
           onClick={closeForm}
+          title="close form"
         >
           <FontAwesomeIcon icon={faClose} />
         </button>
@@ -180,6 +186,7 @@ function AddTaskForm(props) {
               data-id={itemIdToManipulate}
               className="add-task-btn add-task-form-container__form__save-task"
               onClick={handleSubmit}
+              title="save task"
             >
               Save Task
             </button>
@@ -187,6 +194,7 @@ function AddTaskForm(props) {
             <button
               className="add-task-btn add-task-form-container__form__add-task"
               onClick={handleSubmit}
+              title="add task"
             >
               Add Task
             </button>

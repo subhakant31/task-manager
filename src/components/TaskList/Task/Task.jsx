@@ -7,22 +7,26 @@ import { useEffect, useState } from "react";
 import { getParentComp, deleteTask } from "../../../helperFunction";
 import StatusPill from "../../StatusPill/StatusPill.jsx";
 function Task(props) {
-  const task = props.task;
-  const setTaskData = props.setTaskData;
-  const taskData = props.taskData;
-  const setTaskFormVisible = props.setTaskFormVisible;
-  const [deleteValidation, setDeleteValidation] = useState(false);
+  const {
+    task,
+    setTaskData,
+    taskData,
+    setTaskFormVisible,
+    setItemIdToManipulate,
+  } = props;
 
   const [deleteValidationVisible, setDeleteValidationVisible] = useState(false);
 
-  const itemIdToManipulate = props.itemIdToManipulate;
-  const setItemIdToManipulate = props.setItemIdToManipulate;
-
   function clickHandler(e) {
-    if (e.target.classList.contains("yes-btn")) {
-      setDeleteValidation(true);
-    } else {
-      setDeleteValidation(false);
+    //logic to delete the task item upon confirmation
+    const confirmDeleteBtn = e.target.closest(".yes-btn");
+    const denyDeleteBtn = e.target.closest(".no-btn");
+    if (confirmDeleteBtn) {
+      const itemId = e.target.dataset.id;
+      const updatedTask = deleteTask(itemId, [...taskData]);
+      setTaskData(updatedTask);
+    } else if (denyDeleteBtn) {
+      setDeleteValidationVisible(false);
     }
 
     //logic to mark the task as complete
@@ -43,42 +47,20 @@ function Task(props) {
 
     //logic for deleting a task
     const deleteBtn = e.target.closest(".delete-task-btn");
-    if (deleteBtn.classList.contains("delete-task-btn")) {
-      console.log(deleteValidationVisible);
+    if (deleteBtn) {
       setDeleteValidationVisible(true);
-      console.log(deleteValidationVisible);
-      const itemId = deleteBtn.dataset.id;
-      // if (deleteValidation) {
-      const updatedTask = deleteTask(itemId, [...taskData]);
-      setTaskData(updatedTask);
-      // } else {
-      // setDeleteValidationVisible(false);
-      // }
     }
   }
 
   return (
     <>
-      {deleteValidationVisible && (
-        <div className="delete-validation">
-          <h2>Are you sure you want to delete this task ?</h2>
-          <div
-            className="delete-validation__btn-wrapper"
-            onClick={clickHandler}
-          >
-            <button className="yes-btn">Yes</button>
-            <button className="no-btn">No</button>
-          </div>
-        </div>
-      )}
-      <li className="task" data-id={task.id}>
+      <li className="task" data-id={task.id} onClick={clickHandler}>
         <div className="task__checkbox-info-wrapper">
           <input
             type="checkbox"
             className="complete-task-btn"
             data-id={task.id}
             checked={task.isCompleted}
-            onClick={clickHandler}
           ></input>
           <div className="task__contents">
             <div className="task__contents__task-info-wrapper">
@@ -95,7 +77,6 @@ function Task(props) {
               <button
                 className="action-btn edit-task-btn"
                 data-id={task.id}
-                onClick={clickHandler}
                 title="edit task"
               >
                 <FontAwesomeIcon icon={faPenToSquare} />
@@ -103,7 +84,6 @@ function Task(props) {
               <button
                 className="action-btn delete-task-btn"
                 data-id={task.id}
-                onClick={clickHandler}
                 title="delete task"
               >
                 <FontAwesomeIcon icon={faTrash} />
@@ -111,14 +91,34 @@ function Task(props) {
             </div>
           </div>
         </div>
-        <span className="task__due-date">
-          due Date: <br />
-          {task.dueDate} <br />
+        <div className="task__due-date">
+          <div className="due-date">
+            <span className="due-date__title">Due Date</span>
+            <span className="due-date__date">{task.dueDate}</span>
+          </div>
+          <StatusPill
+            statusText={task.isInDueDate ? "in due date" : "past due date"}
+          ></StatusPill>
           <StatusPill
             statusText={task.isCompleted ? "completed" : "incomplete"}
           ></StatusPill>
-        </span>
+        </div>
       </li>
+      {deleteValidationVisible && (
+        <div className="delete-validation-wrapper">
+          <div className="delete-validation" onClick={clickHandler}>
+            <h2>Are you sure you want to delete this task ?</h2>
+            <div className="delete-validation__btn-wrapper">
+              <button className="yes-btn validation-btn" data-id={task.id}>
+                Yes
+              </button>
+              <button className="no-btn validation-btn" data-id={task.id}>
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

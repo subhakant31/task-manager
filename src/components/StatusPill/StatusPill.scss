@@ -15,11 +15,13 @@
   }
 }
 
-.completed {
+.completed,
+.in-due-date {
   background-color: rgba(0, 255, 0, 0.1);
   color: $color-green;
 }
-.incomplete {
+.incomplete,
+.past-due-date {
   background-color: rgb(255, 0, 0, 0.2);
   color: $color-red;
 }
